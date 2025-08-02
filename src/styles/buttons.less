@@ -1,0 +1,30 @@
+.btn {
+  color: inherit;
+  text-transform: inherit;
+  font-size: inherit;
+  border: none;
+  background-color: transparent;
+  padding: 0.625rem 1.25rem;
+  cursor: pointer;
+  transition: 0.33s ease background-color;
+  &--primary {
+    font-size: 0.75rem;
+    background-color: rgba(@primary, 1);
+    color: @white;
+    &:hover {
+      background-color: rgba(@primary, 0.85);
+    }
+  }
+  &--reset {
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    height: 100%;
+    padding: 0 0.5rem;
+    &::before {
+      content: "\00d7";
+      display: block;
+    }
+  }
+}

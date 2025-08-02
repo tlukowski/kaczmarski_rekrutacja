@@ -1,0 +1,16 @@
+@primary: #e40321;
+@secondary: #003054;
+@gray: #d3d3d3;
+@white: #fff;
+@spacer: 0.5rem;
+
+@sm: 640px;
+@md: 768px;
+@lg: 1024px;
+@xl: 1280px;
+
+.media-breakpoint(@size, @rules) {
+  @media (min-width: @size) {
+    @rules();
+  }
+}
