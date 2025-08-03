@@ -1,6 +1,5 @@
 import { useState } from "react";
 import useTableSort from "../../hooks/useTableSort";
-import formatDate from "../../utils/formatDate";
 import Skeleton from "../ui/skeleton/skeleton";
 import { currentCurrency } from "../../consts/current-currency";
 import {
@@ -9,6 +8,7 @@ import {
   type SortDirection,
 } from "../../types/types";
 import CaretIcon from "../ui/caret-icon/caret-icon";
+import { formatToDayMonthYearString } from "../../utils/formatToDayMonthYearString";
 interface FilterTableProps {
   isLoading: boolean;
   data: Debtor[];
@@ -89,7 +89,7 @@ const FilterTable = ({ isLoading, data, headers }: FilterTableProps) => {
                       {currentCurrency}
                     </td>
                     <td className="filter__cell filter__cell--item">
-                      {formatDate(item.Date)}
+                      {formatToDayMonthYearString(item.Date)}
                     </td>
                   </tr>
                 ))

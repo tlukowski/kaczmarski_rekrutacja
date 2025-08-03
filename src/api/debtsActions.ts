@@ -7,7 +7,8 @@ export const fetchTopDebts = async (
 ): Promise<void> => {
   setIsLoading(true);
   try {
-    const result = await getTopDebts();
+    const response = await getTopDebts();
+    const result = await response.json();
     setData(result);
   } catch (error) {
     console.error(error);
@@ -23,7 +24,8 @@ export const fetchFilteredDebts = async (
 ): Promise<void> => {
   setIsLoading(true);
   try {
-    const result = await getFilteredDebts(phrase);
+    const response = await getFilteredDebts(phrase);
+    const result = await response.json();
     setData(result);
   } catch (error) {
     console.error(error);

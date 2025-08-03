@@ -1,69 +1,69 @@
-# React + TypeScript + Vite
+# Giełda wierzytelności – Rekrutacja KRD
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Aplikacja React do przeglądania i filtrowania wierzytelności.
+Projekt powstał w ramach zadania rekrutacyjnego do Kaczmarski Group.
 
-Currently, two official plugins are available:
+## Funkcje
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- Sortowanie i filtrowanie dłużników po nazwie lub NIP
+- Wyświetlanie szczegółów zadłużenia
+- Szybkie wyszukiwanie z walidacją
+- Responsywny interfejs
+- Loader animowany na start
+- Testy jednostkowe (Vitest)
 
-## Expanding the ESLint configuration
+## Instalacja
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
-
-```js
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-
-      // Remove tseslint.configs.recommended and replace with this
-      ...tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      ...tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      ...tseslint.configs.stylisticTypeChecked,
-
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```sh
+npm install
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+## Uruchomienie aplikacji
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```sh
+npm run dev
 ```
+
+Aplikacja będzie dostępna pod adresem [http://localhost:5173](http://localhost:5173).
+
+## Budowanie produkcyjne
+
+```sh
+npm run build
+```
+
+## Testy
+
+```sh
+npm run test
+```
+
+Testy znajdują się w katalogu [`src/tests/`](src/tests/).
+
+## Struktura projektu
+
+- [`src/components/`](src/components/) – komponenty UI i widoki
+- [`src/hooks/`](src/hooks/) – hooki React
+- [`src/api/`](src/api/) – komunikacja z API
+- [`src/utils/`](src/utils/) – funkcje pomocnicze
+- [`src/types/`](src/types/) – typy TypeScript
+- [`src/styles/`](src/styles/) – style LESS
+- [`src/tests/`](src/tests/) – testy jednostkowe
+
+## Konfiguracja API
+
+Adres API ustawiany jest w pliku [.env.local](.env.local):
+
+```
+VITE_API_URL = "https://rekrutacja-webhosting-it.krd.pl/api/Recruitment"
+```
+
+## Technologie
+
+- React 19
+- TypeScript
+- Vite
+- LESS
+- Vitest
+
+---

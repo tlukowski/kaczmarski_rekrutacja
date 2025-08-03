@@ -15,7 +15,7 @@ const FilterTop = ({
   onReset,
   showResetButton,
 }: FilterTopProps) => {
-  const [error, setError] = useState("");
+  const [error, setError] = useState<string>("");
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -38,37 +38,35 @@ const FilterTop = ({
       <div className="container">
         <form onSubmit={handleSubmit}>
           <label className="filter__label">Podaj NIP lub nazwę dłużnika</label>
-          <div>
-            <div className="filter__wrapper">
-              <div className="filter__input-group">
-                <input
-                  className="filter__input"
-                  type="text"
-                  value={searchPhrase}
-                  onChange={(e) => onSearchPhraseChange(e.target.value)}
-                  aria-label="Wyszukaj dłużnika po NIP lub nazwie"
-                  placeholder="Wprowadź NIP lub nazwę dłużnika"
+          <div className="filter__wrapper">
+            <div className="filter__input-group">
+              <input
+                className="filter__input"
+                type="text"
+                value={searchPhrase}
+                onChange={(e) => onSearchPhraseChange(e.target.value)}
+                aria-label="Wyszukaj dłużnika po NIP lub nazwie"
+                placeholder="Wprowadź NIP lub nazwę dłużnika"
+              />
+              {showResetButton && (
+                <button
+                  onClick={handleClear}
+                  type="button"
+                  className="btn btn--reset"
+                  aria-label="Wyczyść wyszukiwanie i pokaż wszystkich dłużników"
                 />
-                {showResetButton && (
-                  <button
-                    onClick={handleClear}
-                    type="button"
-                    className="btn btn--reset"
-                    aria-label="Wyczyść wyszukiwanie i pokaż wszystkich dłużników"
-                  />
-                )}
-              </div>
-              <button
-                type="submit"
-                className="btn btn--primary uppercase"
-                aria-label="Wyszukaj dłużników"
-              >
-                Szukaj
-              </button>
+              )}
             </div>
+            <button
+              type="submit"
+              className="btn btn--primary uppercase"
+              aria-label="Wyszukaj dłużników"
+            >
+              Szukaj
+            </button>
+            {error && <div className="error filter__error">{error}</div>}
           </div>
         </form>
-        {error && <div className="error">{error}</div>}
       </div>
     </div>
   );

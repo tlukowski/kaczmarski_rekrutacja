@@ -3,13 +3,13 @@ import FilterTop from "./filter-top";
 import FilterTable from "./filter-table";
 import { getTopDebts, getFilteredDebts } from "../../api/debts";
 import { useState, useEffect } from "react";
-import { type SortKey } from "../../types/types";
+import { type SortKey, type Debtor } from "../../types/types";
 
 const FilterSection = () => {
-  const [data, setData] = useState([]);
-  const [searchPhrase, setSearchPhrase] = useState("");
-  const [isLoading, setIsLoading] = useState(false);
-  const [showResetButton, setShowResetButton] = useState(false);
+  const [data, setData] = useState<Debtor[]>([]);
+  const [searchPhrase, setSearchPhrase] = useState<string>("");
+  const [isLoading, setIsLoading] = useState<boolean>(false);
+  const [showResetButton, setShowResetButton] = useState<boolean>(false);
 
   const headers: Array<{ key: SortKey; name: string }> = [
     {
