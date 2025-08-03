@@ -77,7 +77,7 @@ const FilterTable = ({ isLoading, data, headers }: FilterTableProps) => {
             <tbody>
               {filteredData.length > 0 ? (
                 filteredData.map((item: Debtor) => (
-                  <tr key={item.Id}>
+                  <tr className="filter__row" key={item.Id}>
                     <td className="filter__cell filter__cell--item">
                       {item.Name}
                     </td>
