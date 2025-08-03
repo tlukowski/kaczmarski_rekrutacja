@@ -7,10 +7,12 @@ interface useTableSortProps {
 }
 
 const useTableSort = ({ data, sortKey, direction }: useTableSortProps) => {
-  if (direction === "ASC") {
-    return data.sort((a, b) => (a[sortKey] > b[sortKey] ? 1 : 0));
-  }
-  return data.sort((a, b) => (a[sortKey] > b[sortKey] ? 0 : 1));
+  const sorted = [...data].sort((a, b) => {
+    if (a[sortKey] > b[sortKey]) return direction === "ASC" ? 1 : -1;
+    if (a[sortKey] < b[sortKey]) return direction === "ASC" ? -1 : 1;
+    return 0;
+  });
+  return sorted;
 };
 
 export default useTableSort;
