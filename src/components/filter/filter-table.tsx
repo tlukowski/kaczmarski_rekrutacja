@@ -86,7 +86,9 @@ const FilterTable = ({ isLoading, data, headers }: FilterTableProps) => {
                     </td>
                     <td className="filter__cell filter__cell--item">
                       {item.Value}
-                      {currentCurrency}
+                      <span className="filter__currency">
+                        {currentCurrency}
+                      </span>
                     </td>
                     <td className="filter__cell filter__cell--item">
                       {formatToDayMonthYearString(item.Date)}
